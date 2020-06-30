@@ -23,7 +23,7 @@ paths:
       summary: "Adding a new Device to list"
       consumes:
         - application/json
-      operationId: "addDevice"
+      operationId: "AddDevice"
       parameters:
         - in: "body"
           name: "DeviceDetails"
@@ -42,7 +42,7 @@ paths:
       summary: "Get the list of all smart device present in home"
       consumes:
         - application/json
-      operationId: "GetDetails"
+      operationId: "GetDeviceList"
       responses:
         200:
           description: "Details present and Detail object is returned"
@@ -56,7 +56,7 @@ paths:
       summary: "Perform action on the smart device available in the home"
       consumes:
         - application/json
-      operationId: "operateDevice"
+      operationId: "OperateDevice"
       parameters:
         - in: "body"
           name: "DeviceDetails"
@@ -75,7 +75,7 @@ paths:
       summary: "Remove the smart Device from home"
       consumes:
         - application/json
-      operationId: "removeDevice"
+      operationId: "RemoveDevice"
       parameters:
         - name: "deviceName"
           in: "query"
