@@ -34,6 +34,8 @@ paths:
       responses:
         200:
           description: OK
+        409:
+          description: 'Data already exists'
         500:
           description: 'Internal Server Error'
     get:
@@ -45,9 +47,7 @@ paths:
       operationId: "GetDeviceList"
       responses:
         200:
-          description: "Details present and Detail object is returned"
-        400:
-          description: "Data not found"
+          description: "Data Present and Data Array is returned"
         500:
           description: 'Internal Server Error'
     put:
@@ -63,10 +63,12 @@ paths:
           description: "details of device that need to be updated"
           required: true
           schema:
-            $ref: "#/definitions/deviceSchema"
+            $ref: "#/definitions/operatedeviceSchema"
       responses:
         200:
           description: OK
+        404:
+          description: Device not found
         500:
           description: 'Internal Server Error'
     delete:
@@ -96,5 +98,12 @@ definitions:
       brand:
         type: "string"
       currentStatus:
+        type: "string"
+  operatedeviceSchema:
+    type: "object"
+    properties:
+      deviceName:
+        type: "string"
+      modifyStatus:
         type: "string"
   

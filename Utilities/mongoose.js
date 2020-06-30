@@ -15,6 +15,8 @@ mongoServer.getUri().then((mongoUri) => {
   };
 
   mongoose.connect(mongoUri, mongooseOpts);
+  mongoose.set('useCreateIndex', true);
+  mongoose.set('useFindAndModify',false);
 
   mongoose.connection.on('error', (e) => {
     if (e.message.code === 'ETIMEDOUT') {
