@@ -10,7 +10,7 @@ Step3: Enter below URL in Browser to look at the Swagger Document of application
        For API docs of swagger: localhost:3000/api-docs
        For UI of swagger: localhost:3000/docs
 
-Step4: Import the HomeAutomation collection in postman provided in Postman folder.
+Step4: Import the HomeAutomation.postman_collection in postman provided in Postman folder.
 
 Step5: Run all the HTTP request through postman collection and verify the results. 
 
