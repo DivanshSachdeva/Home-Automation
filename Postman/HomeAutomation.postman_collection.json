@@ -1,0 +1,140 @@
+{
+	"info": {
+		"_postman_id": "584304cc-fd29-4010-a352-617f0eb200ff",
+		"name": "HomeAutomation",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Add SmartDevice",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"deviceName\":\"Fan-1\",\r\n\t\"brand\": \"Philips\",\r\n    \"currentStatus\":\"disabled\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/device/smartDevice",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"device",
+						"smartDevice"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Operate Smart Device",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"deviceName\":\"Fan-1\",\r\n    \"modifyStatus\":\"enabled\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/device/smartDevice",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"device",
+						"smartDevice"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Smart Device List",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/device/smartDevice",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"device",
+						"smartDevice"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Remove Smart Device",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/device/smartDevice?deviceName=Fan-1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"device",
+						"smartDevice"
+					],
+					"query": [
+						{
+							"key": "deviceName",
+							"value": "Fan-1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

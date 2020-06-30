@@ -1,0 +1,109 @@
+swagger: "2.0"
+info:
+  description: "This is a Home automation application to remotely control devices at home"
+  version: "1.0.0"
+  title: "Home Automation"
+host: "localhost"
+basePath: "/device"
+tags:
+  - name: "Smart Device"
+    description: "RESTful API to ADD,DELETE,UPDATE and GET the device"
+consumes:
+  - "application/json"
+produces:
+  - "application/json"
+schemes:
+  - "https"
+  - "http"
+paths:
+  /SmartDevice:
+    post:
+      tags:
+        - "Smart Device"
+      summary: "Adding a new Device to list"
+      consumes:
+        - application/json
+      operationId: "AddDevice"
+      parameters:
+        - in: "body"
+          name: "DeviceDetails"
+          description: "details of device that need to added in list"
+          required: true
+          schema:
+            $ref: "#/definitions/deviceSchema"
+      responses:
+        200:
+          description: OK
+        409:
+          description: 'Data already exists'
+        500:
+          description: 'Internal Server Error'
+    get:
+      tags:
+        - "Smart Device"
+      summary: "Get the list of all smart device present in home"
+      consumes:
+        - application/json
+      operationId: "GetDeviceList"
+      responses:
+        200:
+          description: "Data Present and Data Array is returned"
+        500:
+          description: 'Internal Server Error'
+    put:
+      tags:
+        - "Smart Device"
+      summary: "Perform action on the smart device available in the home"
+      consumes:
+        - application/json
+      operationId: "OperateDevice"
+      parameters:
+        - in: "body"
+          name: "DeviceDetails"
+          description: "details of device that need to be updated"
+          required: true
+          schema:
+            $ref: "#/definitions/operatedeviceSchema"
+      responses:
+        200:
+          description: OK
+        404:
+          description: Device not found
+        500:
+          description: 'Internal Server Error'
+    delete:
+      tags:
+        - "Smart Device"
+      summary: "Remove the smart Device from home"
+      consumes:
+        - application/json
+      operationId: "RemoveDevice"
+      parameters:
+        - name: "deviceName"
+          in: "query"
+          type: "string"
+          required: true
+          description: "name of device that need to remove"
+      responses:
+        200:
+          description: OK
+        500:
+          description: 'Internal Server Error'
+definitions:
+  deviceSchema:
+    type: "object"
+    properties:
+      deviceName:
+        type: "string"
+      brand:
+        type: "string"
+      currentStatus:
+        type: "string"
+  operatedeviceSchema:
+    type: "object"
+    properties:
+      deviceName:
+        type: "string"
+      modifyStatus:
+        type: "string"
+  

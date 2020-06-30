@@ -1,0 +1,32 @@
+{
+  "name": "home-automation",
+  "version": "1.0.0",
+  "description": "Restful API to add,remove,get,update smart devices at home",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "js-yaml": "^3.14.0",
+    "mongodb-memory-server": "^6.6.1",
+    "mongoose": "^5.9.20",
+    "nodemon": "^2.0.4",
+    "path": "^0.12.7",
+    "swagger-tools": "^0.10.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DivanshSachdeva/Home-Automation.git"
+  },
+  "author": "Divansh Sachdeva",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DivanshSachdeva/Home-Automation/issues"
+  },
+  "homepage": "https://github.com/DivanshSachdeva/Home-Automation#readme"
+}
