@@ -8,6 +8,7 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "js-yaml": "^3.14.0",
+    "mongodb-memory-server": "^6.6.1",
     "mongoose": "^5.9.20",
     "nodemon": "^2.0.4",
     "path": "^0.12.7",

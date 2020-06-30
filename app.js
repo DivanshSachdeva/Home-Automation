@@ -7,6 +7,7 @@ const routes=require('./routes');
 const path=require('path');
 const yaml=require('js-yaml')
 require('dotenv').config()
+require('./Utilities/mongoose')();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
