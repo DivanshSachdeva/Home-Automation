@@ -1,0 +1,100 @@
+swagger: "2.0"
+info:
+  description: "This is a Home automation application to remotely control devices at home"
+  version: "1.0.0"
+  title: "Home Automation"
+host: "localhost"
+basePath: "/device"
+tags:
+  - name: "Smart Device"
+    description: "RESTful API to ADD,DELETE,UPDATE and GET the device"
+consumes:
+  - "application/json"
+produces:
+  - "application/json"
+schemes:
+  - "https"
+  - "http"
+paths:
+  /SmartDevice:
+    post:
+      tags:
+        - "Smart Device"
+      summary: "Adding a new Device to list"
+      consumes:
+        - application/json
+      operationId: "addDevice"
+      parameters:
+        - in: "body"
+          name: "DeviceDetails"
+          description: "details of device that need to added in list"
+          required: true
+          schema:
+            $ref: "#/definitions/deviceSchema"
+      responses:
+        200:
+          description: OK
+        500:
+          description: 'Internal Server Error'
+    get:
+      tags:
+        - "Smart Device"
+      summary: "Get the list of all smart device present in home"
+      consumes:
+        - application/json
+      operationId: "GetDetails"
+      responses:
+        200:
+          description: "Details present and Detail object is returned"
+        400:
+          description: "Data not found"
+        500:
+          description: 'Internal Server Error'
+    put:
+      tags:
+        - "Smart Device"
+      summary: "Perform action on the smart device available in the home"
+      consumes:
+        - application/json
+      operationId: "operateDevice"
+      parameters:
+        - in: "body"
+          name: "DeviceDetails"
+          description: "details of device that need to be updated"
+          required: true
+          schema:
+            $ref: "#/definitions/deviceSchema"
+      responses:
+        200:
+          description: OK
+        500:
+          description: 'Internal Server Error'
+    delete:
+      tags:
+        - "Smart Device"
+      summary: "Remove the smart Device from home"
+      consumes:
+        - application/json
+      operationId: "removeDevice"
+      parameters:
+        - name: "deviceName"
+          in: "query"
+          type: "string"
+          required: true
+          description: "name of device that need to remove"
+      responses:
+        200:
+          description: OK
+        500:
+          description: 'Internal Server Error'
+definitions:
+  deviceSchema:
+    type: "object"
+    properties:
+      deviceName:
+        type: "string"
+      brand:
+        type: "string"
+      currentStatus:
+        type: "string"
+  
