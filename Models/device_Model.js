@@ -16,7 +16,19 @@ let DeviceSchema = mongoose.Schema({
         type: String,
         require: true,
         trim: true
-    }
+    },
+    deviceLogs:[{
+        message:{
+            type: String,
+            require: true,
+            trim: true 
+        },
+        time:{
+            type: Date, 
+            default: Date.now
+        },
+        _id:false
+    }]
 }, { strict: false, timestamps: true });
 
 

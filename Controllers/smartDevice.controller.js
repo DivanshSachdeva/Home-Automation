@@ -1,8 +1,9 @@
 var model = require('../Models/device_Model.js');
 
 async function addDevice(req, res) {
-    try {
-        let data = new model(req.body);
+    try { 
+        let dbObject={...req.body,deviceLogs:{message:`${req.body.deviceName} added to home-automation smart devices`}};
+        let data = new model(dbObject);
         let response = await data.save();
         return res.status(200).send(`${req.body.deviceName} added successfully`);
     } catch (err) {
@@ -15,7 +16,7 @@ async function addDevice(req, res) {
 
 async function getDeviceDetails(req, res) {
     try {
-        let data = await model.find({}, { "deviceName": 1, "currentStatus": 1, _id: 0 });
+        let data = await model.find({}, { "deviceName": 1, "currentStatus": 1,"deviceLogs":1, _id: 0 });
         res.status(200).send(data);
     } catch (err) {
         res.status(500).send('Internal server Error');
@@ -25,7 +26,8 @@ async function getDeviceDetails(req, res) {
 async function operateDevice(req, res) {
     let { deviceName, modifyStatus } = req.body;
     try {
-        let response = await model.findOneAndUpdate({ deviceName: deviceName }, { currentStatus: modifyStatus }, { new: true });
+        let message={message:`${deviceName} status changed to ${modifyStatus}`};
+        let response = await model.findOneAndUpdate({ deviceName: deviceName }, {$set:{currentStatus: modifyStatus}, $push:{deviceLogs:message}}, { new: true });
         if (response == null) {
             throw { message: 'Device not found' }
         }
