@@ -1,5 +1,12 @@
 # Home-Automation
 This Application provides a RESTful structure that allows you to ADD, DELETE,GET and UPDATE functionality for the Home Automation Smart Device. 
+TechStack:
+NodeJs
+Swagger API middleware
+ExpressJS
+MongoDB Memory saver
+Morgan Log
+
 Steps to Follow:
 
 Step1: After taking the clone of feature/r1.0 in you system, open the code in VScode and run 
